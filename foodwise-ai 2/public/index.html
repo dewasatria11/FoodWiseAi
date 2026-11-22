@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#193b30">
+  <meta name="description" content="Temukan ide masak dari bahan yang kamu punya. Sesuaikan resep dengan tujuan, anggaran, dan preferensimu.">
+  <title>FoodWise AI — Dapur saya</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/assets/icon-192.png">
+  <link rel="apple-touch-icon" href="/assets/icon-192.png">
+  <link rel="preload" as="image" href="/assets/tumis-ayam.webp" type="image/webp">
+  <link rel="stylesheet" href="/style.css?v=2">
+  <script defer src="/app.js?v=3"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Langsung ke konten</a>
+  <header class="masthead"><div class="wrap header-inner">
+    <a class="brand" href="#dapur" aria-label="FoodWise AI, beranda"><img src="/assets/icon-192.png" width="40" height="40" alt="">FoodWise<span>AI</span></a>
+    <nav aria-label="Navigasi utama"><button id="install-app" class="install-button" type="button" hidden>⬇ Install App</button><a id="nav-history" href="#riwayat">Riwayat resep</a></nav>
+  </div></header>
+  <main id="main" class="wrap">
+    <div id="home">
+      <section class="hero" id="dapur" aria-labelledby="hero-title">
+        <div class="hero-copy"><h1 id="hero-title">Buka kulkas.<br><em>Temukan menu.</em></h1>
+          <p>Mulai dari bahan yang kamu punya. FoodWise meracik ide masak sesuai selera dan anggaranmu.</p>
+          <a class="button hero-button" href="#racik">Mulai racik menu</a>
+        </div>
+        <figure class="hero-image"><img src="/assets/tumis-ayam.webp" width="1280" height="960" alt="Tumis ayam kecap dan telur dengan wortel serta kol di atas piring keramik." fetchpriority="high"><figcaption><small>Inspirasi sajian</small><strong>Tumis ayam telur kecap</strong></figcaption></figure>
+      </section>
+      <section id="racik" class="workbench" aria-labelledby="form-title">
+        <div class="form-panel">
+          <h2 id="form-title">Racik menu</h2>
+          <form id="recipe-form">
+            <label for="ingredients">Bahan yang tersedia</label>
+            <textarea id="ingredients" name="ingredients" required minlength="2" rows="3" placeholder="Misalnya ayam, telur, wortel, kol, dan kecap"></textarea>
+            <div class="fields">
+              <label>Tujuan masak<select id="goal" name="goal"><option value="sehat dan seimbang">Sehat dan seimbang</option><option value="hemat">Hemat</option><option value="tinggi protein">Tinggi protein</option><option value="cepat dimasak">Cepat dimasak</option></select></label>
+              <label>Anggaran <small>(opsional)</small><input id="budget" name="budget" placeholder="Misalnya Rp25.000"></label>
+            </div>
+            <div class="fields secondary">
+              <label>Alergi <small>(opsional)</small><input id="allergies" name="allergies" placeholder="Misalnya kacang"></label>
+              <label>Preferensi <small>(opsional)</small><input id="preferences" name="preferences" placeholder="Misalnya pedas, sedikit minyak"></label>
+            </div>
+            <button id="submit" class="button" type="submit">Buat rekomendasi</button>
+            <p class="status" id="message" role="status"></p>
+          </form>
+        </div>
+        <aside class="ideas" aria-labelledby="ideas-title">
+          <h2 id="ideas-title">Coba kombinasi</h2><p>Pilih untuk mengisi bahan dan tujuan masak.</p>
+          <div class="samples">
+            <button type="button" data-preset="protein"><img src="/assets/bahan-ayam.webp" alt="" width="90" height="78"><span><small>Tinggi protein</small><strong>Ayam, telur &amp; wortel</strong></span><span class="plus" aria-hidden="true">+</span></button>
+            <button type="button" data-preset="hemat"><img src="/assets/bahan-tempe.webp" alt="" width="90" height="78"><span><small>Hemat</small><strong>Tahu, tempe &amp; kol</strong></span><span class="plus" aria-hidden="true">+</span></button>
+            <button type="button" data-preset="seimbang"><img src="/assets/bahan-ikan.webp" alt="" width="90" height="78"><span><small>Sehat dan seimbang</small><strong>Ikan, tomat &amp; bayam</strong></span><span class="plus" aria-hidden="true">+</span></button>
+          </div>
+        </aside>
+      </section>
+      <section id="result" class="recipe-view" aria-label="Hasil rekomendasi" tabindex="-1" hidden></section>
+    </div>
+    <section id="history" class="history-view" aria-labelledby="history-title" hidden>
+      <div class="history-head"><div><h1 id="history-title">Riwayat resep</h1><p>Buka kembali resep dari analisis sebelumnya.</p></div><button id="refresh" class="outline" type="button">Muat ulang</button></div>
+      <p id="history-status" class="status" role="status"></p><div id="history-list"></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>FoodWise AI</span><a href="#racik">Racik menu</a></div></footer>
+</body></html>
